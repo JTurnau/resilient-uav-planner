@@ -105,7 +105,7 @@ export OPENROUTER_API_KEY="your-openrouter-key"
 export OPENAI_API_KEY="your-openai-key"        # only needed for o4-mini
 ```
 
-**4. Run an experiment**
+**4. Run all experiments (planning & replanning)**
 
 ```bash
 python harness.py
