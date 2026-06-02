@@ -1,2 +1,162 @@
 # resilient-uav-planner
-Language-guided UAV mission planner that dynamically replans in response to explicit, silent, and compound failures in unknown environments.
+
+**Language-Guided Adaptive Mission Replanning for Resilient Autonomous UAVs in Unknown Environments**
+
+A framework in which a large language model (LLM) serves as both the initial mission planner and the dynamic replanner for an autonomous UAV, invoked at every skill boundary and event trigger over an accumulated context of execution history and discovered object observations. Plans are expressed as sequences of parameterized skill invocations from a fixed vocabulary, making them directly executable on a PX4/ROS2 flight stack without intermediate compilation.
+
+> 📄 Paper: *coming soon*
+
+---
+
+## System Overview
+
+<!-- TODO: Insert system architecture diagram here -->
+> **[Placeholder]** System overview diagram coming soon — will illustrate the planning loop, execution context accumulation, replanning trigger flow, and PX4/ROS2 integration.
+
+---
+
+## Skill Vocabulary
+
+Plans are expressed as JSON arrays of parameterized skill invocations. Each step takes the form:
+
+```json
+{ "state": "<skill_name>", "args": { ... }, "repeat": 1 }
+```
+
+`"repeat": N` runs that skill to completion N times before advancing.
+
+| Skill | Args | Notes |
+|---|---|---|
+| `takeoff` | `altitude: float (m)` | Always the first step. Infer altitude from context: confined space → 2–3 m, open area → 5–8 m. |
+| `search` | `pattern: "yaw_scan" \| "lawnmower"` | Discovers objects via onboard perception. `yaw_scan` rotates in place (quick sweeps); `lawnmower` does systematic grid coverage (large areas). |
+| `approach` | `object_id: int \| "all"`, `standoff_distance: float (m, min 5.0)` | Fly to standoff distance from target(s). Must appear immediately before `map` for the same `object_id`. |
+| `map` | `object_id: int \| "all"`, `standoff_distance: float (m, ≥ 5.0)`, `mode: "orbit"` | One full orbit per invocation. Use `repeat: N` to orbit N times. A preceding `approach` for the same `object_id` is required. |
+| `return_home` | *(no args)* | Always the last step. |
+
+**Example plan** — *"Search for objects, orbit each one twice, then return home."*
+
+```json
+[
+  { "state": "takeoff",     "args": { "altitude": 6.0 } },
+  { "state": "search",      "args": { "pattern": "yaw_scan" } },
+  { "state": "approach",    "args": { "object_id": "all", "standoff_distance": 5.0 } },
+  { "state": "map",         "args": { "mode": "orbit", "object_id": "all", "standoff_distance": 5.0 }, "repeat": 2 },
+  { "state": "return_home", "args": {} }
+]
+```
+
+---
+
+## Offline Evaluation Results
+
+Six models evaluated across three replanning experiment types (32 scenarios total). Results reported as overall across all experiments.
+
+> ⚠️ **[Placeholder]** Final compiled results coming soon. Preliminary numbers shown below.
+
+| Model | Decision Acc. (%) | FPR (%) | FNR (%) | Tail Match (%) | Mission OK (%) | Avg Latency (s) |
+|---|---|---|---|---|---|---|
+| Gemini 2.5 Flash (thinking) | 87.5 | 25.0 | 5.0 | 75.0 | 75.0 | 8.53 |
+| Gemini 2.5 Flash (base) | 90.6 | 25.0 | 0.0 | 70.0 | 71.9 | 1.16 |
+| Qwen3 235B (thinking) | 90.6 | 16.7 | 5.0 | 65.0 | 71.9 | 73.78 |
+| Qwen3 235B (instruct) | 68.8 | 16.7 | 40.0 | 15.0 | 40.6 | 4.87 |
+| DeepSeek R1 | 84.4 | 25.0 | 10.0 | 75.0 | 75.0 | 61.79 |
+| o4-mini | 87.5 | 8.3 | 15.0 | 55.0 | 68.8 | 6.32 |
+
+---
+
+## Demo Videos
+
+Four closed-loop demonstrations in Gazebo/PX4, spanning no-failure through compound simultaneous failures.
+
+| Demo | Scenario | Description |
+|---|---|---|
+| Demo 1 | No failure | Nominal mission — takeoff, scan, orbit each object, return home |
+| Demo 2 | Isolated failure | Battery critically low (10%) injected mid-mission |
+| Demo 3 | Silent failure | Object 2 silently removed from tail after object 1 mapped — replanner must detect and restore |
+| Demo 4 | Compound failure | Low battery + tracking loss injected simultaneously |
+
+📂 [Demo videos on Google Drive](https://drive.google.com/drive/folders/15buozLWNcE_k_DTQkE_LhOT8YPfIuZYQ?usp=drive_link)
+
+---
+
+## Setup
+
+### Offline Evaluations
+
+The offline experiments (Experiments 1–4) have no ROS2 or simulation dependency. All you need is API access.
+
+**1. Clone the repo**
+
+```bash
+git clone https://github.com/<your-username>/resilient-uav-planner.git
+cd resilient-uav-planner
+```
+
+**2. Install dependencies**
+
+```bash
+pip install openai
+```
+
+**3. Export API keys**
+
+```bash
+export OPENROUTER_API_KEY="your-openrouter-key"
+export OPENAI_API_KEY="your-openai-key"        # only needed for o4-mini
+```
+
+**4. Run an experiment**
+
+```bash
+python exp1_initial_planning.py
+python exp2_isolated_failures.py
+python exp3_silent_failures.py
+python exp4_compound_failures.py
+```
+
+Results are printed to stdout and saved as JSON in `results/`.
+
+---
+
+### Full System (Gazebo + PX4 + ROS2)
+
+The closed-loop system builds on the [Space Robotics course repo](https://github.com/<space-robotics-repo-link>) — set that up first following its README.
+
+The following files from this repo drop into the `<folder-path-in-original-repo>/` directory of that codebase:
+
+<!-- TODO: Fill in the actual folder path and confirm file names -->
+
+| File | Role |
+|---|---|
+| `mission_executor.py` | Finite state machine that dispatches skill invocations to the flight stack |
+| `llm_planner.py` | Initial plan generation — queries the LLM and validates the returned JSON |
+| `llm_replanner.py` | Mid-flight replanner — builds context prompt and parses NOMINAL / tail responses |
+| `experiment_utils.py` | Shared LLM client, prompt builders, plan validator, mock world state |
+| `perception_node.py` | ROS2 node — object detection and manifest updates |
+| `skill_takeoff.py` | Takeoff skill implementation |
+| `skill_search.py` | Search skill implementation (yaw scan + lawnmower) |
+| `skill_approach.py` | Approach skill implementation |
+| `skill_map.py` | Map / orbit skill implementation |
+| `skill_return_home.py` | Return home skill implementation |
+
+Once the files are in place, launch as described in the base repo and provide a natural language mission string as the entry point.
+
+---
+
+## Citation
+
+```bibtex
+@article{turnau2025resilientuav,
+  title   = {Language-Guided Adaptive Mission Replanning for Resilient Autonomous UAVs in Unknown Environments},
+  author  = {Turnau, Justin},
+  year    = {2025},
+  note    = {Manuscript in preparation}
+}
+```
+
+---
+
+## Author
+
+**Justin Turnau** — Arizona State University  
+[jturnau@asu.edu](mailto:jturnau@asu.edu)
