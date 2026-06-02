@@ -108,10 +108,7 @@ export OPENAI_API_KEY="your-openai-key"        # only needed for o4-mini
 **4. Run an experiment**
 
 ```bash
-python exp1_initial_planning.py
-python exp2_isolated_failures.py
-python exp3_silent_failures.py
-python exp4_compound_failures.py
+python harness.py
 ```
 
 Results are printed to stdout and saved as JSON in `results/`.
@@ -120,11 +117,9 @@ Results are printed to stdout and saved as JSON in `results/`.
 
 ### Full System (Gazebo + PX4 + ROS2)
 
-The closed-loop system builds on the [Space Robotics course repo](https://github.com/<space-robotics-repo-link>) — set that up first following its README.
+The closed-loop system builds on the [Space Robotics course repo]([https://github.com/<space-robotics-repo-link>](https://github.com/DREAMS-lab/ses598-space-robotics-and-ai-2026)) — set that up first following its README.
 
-The following files from this repo drop into the `<folder-path-in-original-repo>/` directory of that codebase:
-
-<!-- TODO: Fill in the actual folder path and confirm file names -->
+The following files from this repo drop into the `assignments/terrain_mapping_drone_control/terrain_mapping_drone_control` directory of that codebase:
 
 | File | Role |
 |---|---|
