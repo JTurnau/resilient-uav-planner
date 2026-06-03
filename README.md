@@ -123,20 +123,19 @@ The following files from this repo drop into the `assignments/terrain_mapping_dr
 
 | File | Role |
 |---|---|
-| `mission_executor.py` | Finite state machine that dispatches skill invocations to the flight stack |
-| `llm_planner.py` | Initial plan generation — queries the LLM and validates the returned JSON |
-| `llm_replanner.py` | Mid-flight replanner — builds context prompt and parses NOMINAL / tail responses |
-| `experiment_utils.py` | Shared LLM client, prompt builders, plan validator, mock world state |
-| `perception_node.py` | ROS2 node — object detection and manifest updates |
-| `skill_takeoff.py` | Takeoff skill implementation |
-| `skill_search.py` | Search skill implementation (yaw scan + lawnmower) |
-| `skill_approach.py` | Approach skill implementation |
-| `skill_map.py` | Map / orbit skill implementation |
-| `skill_return_home.py` | Return home skill implementation |
+| `nl_drone_control.py` | Language-guided autonomous UAV mission executor (ROS 2 / PX4) |
+| `replanner.py` | AutoReplanner: mid-flight plan revision triggered after each skill completes
+or when a synthetic fault is injected |
+| `prompts.py` | LLM prompts for UAV mission planning and replanning |
+| `skills.py` | All UAV skill implementations |
+| `llm_client.py` | LLM client for the Gazebo mission executor |
+| `event_injector.py` | Synthetic fault injection for mid-flight replan testing |
+| `plan_utils.py` | Plan parsing, validation, and printing for the Gazebo executor |
+| `geometry_tracker.py` | Detects cylindrical objects from a depth image using vertical line pairs |
 
-Once the files are in place, launch as described in the base repo and provide a natural language mission string as the entry point.
+Once the files are in place, launch as described in the base repo and provide a natural language mission string into `nl_drone_control.py` MISSIONS variable as the entry point.
 
----
+<!---
 
 ## Citation
 
@@ -148,7 +147,7 @@ Once the files are in place, launch as described in the base repo and provide a 
   note    = {Manuscript in preparation}
 }
 ```
-
+-->
 ---
 
 ## Author
