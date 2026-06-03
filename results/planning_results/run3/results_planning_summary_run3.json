@@ -1,0 +1,254 @@
+{
+  "gemini-2.5-flash-thinking": {
+    "overall": {
+      "n": 10,
+      "validity_rate": 100.0,
+      "tail_match_rate": 100.0,
+      "mission_success_rate": 100.0,
+      "mean_latency_s": 3.048,
+      "mean_attempts": 1.0,
+      "retry_rate": 0.0,
+      "mean_output_tokens": 58.2
+    },
+    "L1": {
+      "n": 3,
+      "validity_rate": 100.0,
+      "tail_match_rate": 100.0,
+      "mission_success_rate": 100.0,
+      "mean_latency_s": 1.681,
+      "mean_attempts": 1.0,
+      "retry_rate": 0.0,
+      "mean_output_tokens": 30.667
+    },
+    "L2": {
+      "n": 3,
+      "validity_rate": 100.0,
+      "tail_match_rate": 100.0,
+      "mission_success_rate": 100.0,
+      "mean_latency_s": 3.751,
+      "mean_attempts": 1.0,
+      "retry_rate": 0.0,
+      "mean_output_tokens": 70.0
+    },
+    "L3": {
+      "n": 4,
+      "validity_rate": 100.0,
+      "tail_match_rate": 100.0,
+      "mission_success_rate": 100.0,
+      "mean_latency_s": 3.546,
+      "mean_attempts": 1.0,
+      "retry_rate": 0.0,
+      "mean_output_tokens": 70.0
+    }
+  },
+  "gemini-2.5-flash-base": {
+    "overall": {
+      "n": 10,
+      "validity_rate": 100.0,
+      "tail_match_rate": 100.0,
+      "mission_success_rate": 100.0,
+      "mean_latency_s": 1.271,
+      "mean_attempts": 1.0,
+      "retry_rate": 0.0,
+      "mean_output_tokens": 56.5
+    },
+    "L1": {
+      "n": 3,
+      "validity_rate": 100.0,
+      "tail_match_rate": 100.0,
+      "mission_success_rate": 100.0,
+      "mean_latency_s": 1.133,
+      "mean_attempts": 1.0,
+      "retry_rate": 0.0,
+      "mean_output_tokens": 30.0
+    },
+    "L2": {
+      "n": 3,
+      "validity_rate": 100.0,
+      "tail_match_rate": 100.0,
+      "mission_success_rate": 100.0,
+      "mean_latency_s": 1.132,
+      "mean_attempts": 1.0,
+      "retry_rate": 0.0,
+      "mean_output_tokens": 68.0
+    },
+    "L3": {
+      "n": 4,
+      "validity_rate": 100.0,
+      "tail_match_rate": 100.0,
+      "mission_success_rate": 100.0,
+      "mean_latency_s": 1.478,
+      "mean_attempts": 1.0,
+      "retry_rate": 0.0,
+      "mean_output_tokens": 67.75
+    }
+  },
+  "qwen-235b-thinking": {
+    "overall": {
+      "n": 10,
+      "validity_rate": 100.0,
+      "tail_match_rate": 100.0,
+      "mission_success_rate": 100.0,
+      "mean_latency_s": 47.33,
+      "mean_attempts": 1.2,
+      "retry_rate": 20.0,
+      "mean_output_tokens": 56.2
+    },
+    "L1": {
+      "n": 3,
+      "validity_rate": 100.0,
+      "tail_match_rate": 100.0,
+      "mission_success_rate": 100.0,
+      "mean_latency_s": 24.525,
+      "mean_attempts": 1.0,
+      "retry_rate": 0.0,
+      "mean_output_tokens": 29.667
+    },
+    "L2": {
+      "n": 3,
+      "validity_rate": 100.0,
+      "tail_match_rate": 100.0,
+      "mission_success_rate": 100.0,
+      "mean_latency_s": 29.569,
+      "mean_attempts": 1.0,
+      "retry_rate": 0.0,
+      "mean_output_tokens": 64.333
+    },
+    "L3": {
+      "n": 4,
+      "validity_rate": 100.0,
+      "tail_match_rate": 100.0,
+      "mission_success_rate": 100.0,
+      "mean_latency_s": 77.754,
+      "mean_attempts": 1.5,
+      "retry_rate": 50.0,
+      "mean_output_tokens": 70.0
+    }
+  },
+  "qwen-235b-instruct": {
+    "overall": {
+      "n": 10,
+      "validity_rate": 100.0,
+      "tail_match_rate": 100.0,
+      "mission_success_rate": 100.0,
+      "mean_latency_s": 11.443,
+      "mean_attempts": 1.0,
+      "retry_rate": 0.0,
+      "mean_output_tokens": 56.3
+    },
+    "L1": {
+      "n": 3,
+      "validity_rate": 100.0,
+      "tail_match_rate": 100.0,
+      "mission_success_rate": 100.0,
+      "mean_latency_s": 1.813,
+      "mean_attempts": 1.0,
+      "retry_rate": 0.0,
+      "mean_output_tokens": 27.333
+    },
+    "L2": {
+      "n": 3,
+      "validity_rate": 100.0,
+      "tail_match_rate": 100.0,
+      "mission_success_rate": 100.0,
+      "mean_latency_s": 6.754,
+      "mean_attempts": 1.0,
+      "retry_rate": 0.0,
+      "mean_output_tokens": 68.0
+    },
+    "L3": {
+      "n": 4,
+      "validity_rate": 100.0,
+      "tail_match_rate": 100.0,
+      "mission_success_rate": 100.0,
+      "mean_latency_s": 22.181,
+      "mean_attempts": 1.0,
+      "retry_rate": 0.0,
+      "mean_output_tokens": 69.25
+    }
+  },
+  "deepseek-r1": {
+    "overall": {
+      "n": 10,
+      "validity_rate": 100.0,
+      "tail_match_rate": 90.0,
+      "mission_success_rate": 90.0,
+      "mean_latency_s": 47.099,
+      "mean_attempts": 1.0,
+      "retry_rate": 0.0,
+      "mean_output_tokens": 51.6
+    },
+    "L1": {
+      "n": 3,
+      "validity_rate": 100.0,
+      "tail_match_rate": 100.0,
+      "mission_success_rate": 100.0,
+      "mean_latency_s": 17.048,
+      "mean_attempts": 1.0,
+      "retry_rate": 0.0,
+      "mean_output_tokens": 33.333
+    },
+    "L2": {
+      "n": 3,
+      "validity_rate": 100.0,
+      "tail_match_rate": 100.0,
+      "mission_success_rate": 100.0,
+      "mean_latency_s": 27.799,
+      "mean_attempts": 1.0,
+      "retry_rate": 0.0,
+      "mean_output_tokens": 68.0
+    },
+    "L3": {
+      "n": 4,
+      "validity_rate": 100.0,
+      "tail_match_rate": 75.0,
+      "mission_success_rate": 75.0,
+      "mean_latency_s": 84.112,
+      "mean_attempts": 1.0,
+      "retry_rate": 0.0,
+      "mean_output_tokens": 53.0
+    }
+  },
+  "o4-mini": {
+    "overall": {
+      "n": 10,
+      "validity_rate": 100.0,
+      "tail_match_rate": 100.0,
+      "mission_success_rate": 100.0,
+      "mean_latency_s": 5.998,
+      "mean_attempts": 1.0,
+      "retry_rate": 0.0,
+      "mean_output_tokens": 41.5
+    },
+    "L1": {
+      "n": 3,
+      "validity_rate": 100.0,
+      "tail_match_rate": 100.0,
+      "mission_success_rate": 100.0,
+      "mean_latency_s": 3.035,
+      "mean_attempts": 1.0,
+      "retry_rate": 0.0,
+      "mean_output_tokens": 19.333
+    },
+    "L2": {
+      "n": 3,
+      "validity_rate": 100.0,
+      "tail_match_rate": 100.0,
+      "mission_success_rate": 100.0,
+      "mean_latency_s": 5.25,
+      "mean_attempts": 1.0,
+      "retry_rate": 0.0,
+      "mean_output_tokens": 69.0
+    },
+    "L3": {
+      "n": 4,
+      "validity_rate": 100.0,
+      "tail_match_rate": 100.0,
+      "mission_success_rate": 100.0,
+      "mean_latency_s": 8.781,
+      "mean_attempts": 1.0,
+      "retry_rate": 0.0,
+      "mean_output_tokens": 37.5
+    }
+  }
+}
