@@ -51,7 +51,7 @@ Plans are expressed as JSON arrays of parameterized skill invocations. Each step
 
 Six models evaluated across three replanning experiment types (32 scenarios total). Results reported as overall across all experiments.
 
-| Model | Decision Acc. (%) ↑ | FPR (%) ↓ | FNR (%) ↓ | Tail Match (%) ↑ | Mission Success (%) ↑ | Avg Latency (s) ↓ |
+| Model | Decision Acc. (%) | FPR (%) | FNR (%) | Tail Match (%) | Mission Success (%) | Avg Latency (s) |
 |---|---:|---:|---:|---:|---:|---:|
 | Gemini 2.5 Flash (thinking) | 88.1 | 19.2 | 7.5 | 75.5 | 77.5 | 8.4 |
 | Gemini 2.5 Flash (base) | 89.7 | 22.5 | 3.0 | 73.5 | 75.0 | 1.3 |
