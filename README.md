@@ -51,16 +51,14 @@ Plans are expressed as JSON arrays of parameterized skill invocations. Each step
 
 Six models evaluated across three replanning experiment types (32 scenarios total). Results reported as overall across all experiments.
 
-> ⚠️ **[Placeholder]** Final compiled results coming soon. Preliminary numbers shown below.
-
 | Model | Decision Acc. (%) | FPR (%) | FNR (%) | Tail Match (%) | Mission OK (%) | Avg Latency (s) |
-|---|---|---|---|---|---|---|
-| Gemini 2.5 Flash (thinking) | 87.5 | 25.0 | 5.0 | 75.0 | 75.0 | 8.53 |
-| Gemini 2.5 Flash (base) | 90.6 | 25.0 | 0.0 | 70.0 | 71.9 | 1.16 |
-| Qwen3 235B (thinking) | 90.6 | 16.7 | 5.0 | 65.0 | 71.9 | 73.78 |
-| Qwen3 235B (instruct) | 68.8 | 16.7 | 40.0 | 15.0 | 40.6 | 4.87 |
-| DeepSeek R1 | 84.4 | 25.0 | 10.0 | 75.0 | 75.0 | 61.79 |
-| o4-mini | 87.5 | 8.3 | 15.0 | 55.0 | 68.8 | 6.32 |
+|---|---:|---:|---:|---:|---:|---:|
+| Gemini 2.5 Flash (thinking) | 88.1 | 19.2 | 7.5 | 75.5 | 77.5 | 8.4 |
+| Gemini 2.5 Flash (base) | 89.7 | 22.5 | 3.0 | 73.5 | 75.0 | 1.3 |
+| Qwen3 235B (thinking) | 89.4 | 14.2 | 8.5 | 63.0 | 71.6 | 84.8 |
+| Qwen3 235B (instruct) | 71.9 | 12.5 | 37.5 | 22.0 | 46.6 | 4.2 |
+| DeepSeek R1 | 85.6 | 22.5 | 9.5 | 65.5 | 70.0 | 82.4 |
+| o4-mini | 80.0 | 13.3 | 24.0 | 51.5 | 64.7 | 6.1 |
 
 ---
 
