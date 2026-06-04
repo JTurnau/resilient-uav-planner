@@ -8,10 +8,11 @@ A framework in which a large language model (LLM) serves as both the initial mis
 
 ---
 
-## System Overview
+## System Architecture
 
-<!-- TODO: Insert system architecture diagram here -->
-> **[Placeholder]** System overview diagram coming soon — will illustrate the planning loop, execution context accumulation, replanning trigger flow, and PX4/ROS2 integration.
+![System Architecture](images/system_architecture.png)
+
+*System overview of the planning loop, execution context accumulation, replanning trigger flow, and PX4/ROS2 integration.*
 
 ---
 
