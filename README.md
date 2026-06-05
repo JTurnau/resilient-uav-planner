@@ -123,8 +123,7 @@ The following files from this repo drop into the `assignments/terrain_mapping_dr
 | File | Role |
 |---|---|
 | `nl_drone_control.py` | Language-guided autonomous UAV mission executor (ROS 2 / PX4) |
-| `replanner.py` | AutoReplanner: mid-flight plan revision triggered after each skill completes
-or when a synthetic fault is injected |
+| `replanner.py` | AutoReplanner: mid-flight plan revision triggered after each skill completes or when a synthetic fault is injected |
 | `prompts.py` | LLM prompts for UAV mission planning and replanning |
 | `skills.py` | All UAV skill implementations |
 | `llm_client.py` | LLM client for the Gazebo mission executor |
