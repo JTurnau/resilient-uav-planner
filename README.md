@@ -116,7 +116,7 @@ Results are printed to stdout and saved as JSON in `results/`.
 
 ### Full System (Gazebo + PX4 + ROS2)
 
-The closed-loop system builds on the [Space Robotics course repo]([https://github.com/<space-robotics-repo-link>](https://github.com/DREAMS-lab/ses598-space-robotics-and-ai-2026)) — set that up first following its README.
+The closed-loop system builds on the [Space Robotics course repo]([[https://github.com/<space-robotics-repo-link>]) — set that up first following its README.
 
 The following files from this repo drop into the `assignments/terrain_mapping_drone_control/terrain_mapping_drone_control` directory of that codebase:
 
