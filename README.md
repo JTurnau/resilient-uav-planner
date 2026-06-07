@@ -2,7 +2,7 @@
 
 **Language-Guided Adaptive Mission Replanning for Resilient Autonomous UAVs in Unknown Environments**
 
-A framework in which a large language model (LLM) serves as both the initial mission planner and the dynamic replanner for an autonomous UAV, invoked at every skill boundary and event trigger over an accumulated context of execution history and discovered object observations. Plans are expressed as sequences of parameterized skill invocations from a fixed vocabulary, making them directly executable on a PX4/ROS2 flight stack without intermediate compilation.
+A structured benchmark and evaluation framework for LLM-based UAV mission replanning, covering four failure conditions: explicit failures, silent failures requiring inference from execution history alone, compound scenarios with competing-priority signals, and nominal conditions where intervention should be suppressed. We evaluate six language models as zero-shot replanning agents and introduce a closed-loop ROS2/PX4 architecture that validates offline evaluation results in Gazebo simulation.
 
 > 📄 Paper: *coming soon*
 
