@@ -5,8 +5,8 @@ All scenario definitions for UAV planning and replanning offline evaluation.
 
 Experiment 0 (Planning):  10 scenarios across L1, L2, L3
 Experiment 1 (Replanning, isolated failures): 8 scenarios
-Experiment 2 (Replanning, silent/implicit failures): 10 scenarios
-Experiment 3 (Replanning, compound/complex failures): 16 scenarios
+Experiment 2 (Replanning, silent/implicit failures): 9 scenarios
+Experiment 3 (Replanning, compound/complex failures): 15 scenarios
 
 Total replanning scenarios: 32
 """
