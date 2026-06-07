@@ -8,7 +8,7 @@ Experiment 1 (Replanning, isolated failures): 8 scenarios
 Experiment 2 (Replanning, silent/implicit failures): 10 scenarios
 Experiment 3 (Replanning, compound/complex failures): 16 scenarios
 
-Total replanning scenarios: 34
+Total replanning scenarios: 32
 """
 
 from dataclasses import dataclass, field
@@ -835,7 +835,7 @@ REPLAN_SCENARIOS: list[ReplanScenario] = [
         search_explicit=False,
     ),
 
-    # --- NOM: clean NOMINAL (4) ---
+    # --- NOM: clean NOMINAL (3) ---
 
     ReplanScenario(
         id="E2-NOM1",
